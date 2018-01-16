@@ -1,0 +1,117 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1>My Data</h1>
+
+<%= link_to '☆Crate Your Account', new_user_path %>
+<br>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Introduction</th>
+      <th>Place</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.last(1).each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.country.name %></td>
+        <td><%= user.sex.name %></td>
+        <td><%= user.age %></td>
+        <td><%= user.introduction %></td>
+        <td><%= user.place.name%></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<br>
+<br>
+<br>
+
+<h1>Matching</h1>
+
+<th>Let's matching！</th>
+<th>People who are same nationality & same current place!!</th>
+<br>
+<br>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Introduction</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <% @matched_users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.sex.name %></td>
+          <td><%= user.age %></td>
+          <td><%= user.introduction %></td>
+          <td><%= link_to 'Show', user %></td>
+        </tr>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<br>
+<br>
+
+
+<h1>All Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Introduction</th>
+      <th>Place</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.country.name %></td>
+        <td><%= user.sex.name %></td>
+        <td><%= user.age %></td>
+        <td><%= user.introduction %></td>
+        <td><%= user.place.name%></td>
+        <td><%= link_to 'Show', user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
